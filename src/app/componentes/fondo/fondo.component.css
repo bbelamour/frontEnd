@@ -1,0 +1,11 @@
+.fondo {
+  background-repeat: repeat;
+  background-image: url(/assets/image/fondo1.jpg);
+  background-size: cover;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 105%;
+  min-height: 100%;
+  transform: translateX(calc((100% - 100vw) / 2));
+  }

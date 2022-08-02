@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,500;1,100&display=swap');
+
+*{
+  font-family: 'Exo 2', sans-serif;
+
+}
+
+
+
+
+ .img-fluid{
+  max-width: 100%;
+  min-width: 40%;
+  position: relative; 
+  z-index: 2;
+  margin-top: -15%;
+  margin-left: 20px;
+  border-radius: 50%;
+  border: black solid 1px;
+  height: 20vh;
+  width: 20vw;
+  
+}
+.card-header {
+  color: white;
+  margin: 25px;
+  position: relative;
+  z-index: 1;
+
+}
+.pie-foto { 
+  margin: 25px;
+  position: relative;
+  z-index: 1;
+}
+.pie-foto .btn{
+  margin: 3px;
+}
+h6 {
+  color: #fff;
+}
+  /*.row {
+ 
+  width: 100%;
+  opacity: 0.9;
+  margin: 25px;
+  background-color: rgba(177, 67, 27, 0.733);
+  color: white;
+  border-radius: 20px;
+  }*/
+
+
+
+@media handheld, screen and (min-width: 600px) and (max-width: 1023px) { 
+  nav {
+    display: absolute;
+  }
+
+  .flotar-derecha .redes{
+    text-decoration: none;
+  }
+
+}
+
+@media handheld, screen and (min-width: 390px) and (max-width: 599px) {
+  
+  nav {
+    display: flex;
+  }
+  
+  .flotar-derecha .redes{
+    text-decoration: none;
+   
+  }
+}
+
+@media handheld, screen and (max-width: 389px) {
+
+ nav {
+    display: flex;
+  }
+  .flotar-derecha .redes{
+    display: none;
+  }
+
+}
+

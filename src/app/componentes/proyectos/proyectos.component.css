@@ -1,0 +1,19 @@
+div.row {
+ 
+    width: 100%;
+    opacity: 0.9;
+    margin: 25px;
+    background-color: rgba(143, 23, 123, 0.733);
+    color: white;
+    border-radius: 20px;
+    }
+  
+    ul.items {
+      margin: 10px;
+    }
+  
+    svg {
+      float: right;
+      margin-top: -40px;
+      
+  }
