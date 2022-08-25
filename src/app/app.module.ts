@@ -12,8 +12,11 @@ import { BannerComponent } from './componentes/banner/banner.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -27,8 +30,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     FooterComponent,
     EducacionComponent,
     HabilidadesComponent,
-    ProyectosComponent,
-    AcercaDeComponent,
+    ProyectosComponent
+    
     
   ],
   
@@ -36,8 +39,11 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgCircleProgressModule.forRoot({})
-
+    NgCircleProgressModule.forRoot({}),
+    FormsModule,
+    ReactiveFormsModule
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

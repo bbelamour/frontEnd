@@ -1,0 +1,29 @@
+
+h2{
+    text-align: left;
+    display: inline;
+}
+  .botones {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+
+  .card-header {
+    color: white;
+    margin: 25px;
+    position: relative;
+    z-index: 1;
+  
+  }
+  .pie-foto { 
+    position: relative;
+    z-index: 1;
+    margin: 25px;
+  }
+
+  
+  
+  
+  

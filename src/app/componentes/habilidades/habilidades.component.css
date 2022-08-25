@@ -1,32 +1,12 @@
-div.row {
- 
-    width: 100%;
-    opacity: 0.9;
-    margin: 25px;
-    background-color: rgba(143, 23, 123, 0.733);
-    color: white;
-    border-radius: 20px;
-    }
-  
-    ul.items {
-      margin: 10px;
-    }
-    svg {
-      float: right;
-      margin-top: -40px;
-      
-  }
+.carta {
+  width: 100%;
+  opacity: 0.9;
+  margin: 25px;
+  background-color: rgba(143, 23, 123, 0.733);
+  color: white;
+  border-radius: 20px 18px  ;
+}
 
-
-  body {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #1d1e22;
-      font-family: 'Poppins', sans-serif;
-      
-  }
   
   .circle {
       display: grid;

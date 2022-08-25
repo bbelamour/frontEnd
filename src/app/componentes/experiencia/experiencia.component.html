@@ -1,38 +1,145 @@
-<div class="col-11 col-xs-8 col-sm-11 col-md-11 col-lg-11">
-    <div class="row">
-        <div>
-            <h1>Experiencia Laboral</h1>
+<section>
+    <div class="col-11 col-xs-8 col-sm-11 col-md-11 col-lg-11">
+        <div class="carta">
+            <div class="p-2">
+                <div>
+                    <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#myModalAddExperience"
+                        style="float:right;">AGREGAR</button>
+                </div>
+                <h1>Experiencia Laboral</h1>
+            </div>
+            <div class="card">
+                <div class="container-contenido mb-2" *ngFor="let item of misExperiencias, let indice=index">
+            <div>
+                <h6>{{item.tituloExp}}</h6>
+                <h6>{{item.fechaExp}}</h6>
+                <h6>{{item.descripcionExp}}</h6>
+            </div>
+           <div class="botones">
+                 <div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                       data-bs-target="#myModalEditExperience" (click)="findExperience(indice)">EDITAR</button>
+                        </div>
+                    <div><button class="btn btn-danger" data-bs-toggle="modal"
+                       data-bs-target="#myModalDeleteExperience"
+                           (click)="findExperience(indice)">ELIMINAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" color="white" margin="2px" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-              </svg>
-        </div>
-        <div>
-            <ul class="items">
-                <h6>HG SEGURIDAD INDUSTRIAL SRL</h6>
-                <p> Diciembre 2020 - Actualidad</p>
-                <li>Mantenimiento y organización de archivos</li>
-                <li>Facturación</li>
-                <li>Actualización de las listas de correo y de contacto de la empresa</li>
-                <li>Mantenimiento de catálogo y stock e-commerce</li>
-                <li>Actualicación regular del sitio web de la empresa y de las distintas cuentas en redes sociales</li>
-                <br>
-                <h6>TRADUCCIONES FREELANCE</h6>
-                <p> Octubre 2017 - Noviembre 2020</p>
-                <li>Trabajos de traducción ingles-español</li>
-                <li>Especialización en traducción audiovisual</li>
-                <li>Manejo de herramientas de traducción: MemoQ , SDLTrados</li>
-                <br>
+    </div>
+</section>
+<!-----------------------------------EDITAR--------------------------------------------->
+<div class="modal" id="myModalEditExperience">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-                <h6>WOLO HOSTEL RIO</h6>
-                <p> Enero 2017- Julio 2017</p>
-                <li>Recepción bilingüe (portugués - español)</li>
-                <li>Check-in y check-out de huéspedes</li>
-                <li>Cotizaciones telefónicas</li>
-                <li>Venta de excursiones y paseos ofrecidos por el hostel</li>
-            </ul>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Editar experiencia</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="formExperiencias" (ngSubmit)="editExperience(auxId)">
+                    <div class="mb-3 mt-3">
+                        <label for="tituloExp" class="form-label">Titulo</label>
+                        <input class="form-control" id="tituloExp" placeholder="Ingrese el titulo de la experiencia"
+                            name="tituloExp" formControlName="tituloExp" [ngModel]="tituloExpSelect">
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaExp" class="form-label">Fecha</label>
+                        <input class="form-control" id="fechaExp" placeholder="Ingrese la fecha" name="fechaExp"
+                            formControlName="fechaExp" [ngModel]="fechaExpSelect">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcionExp" class="form-label">Descripción</label>
+                        <input class="form-control" id="descripcionExp" placeholder="Ingrese descripción"
+                            formControlName="descripcionExp" name="descripcionExp" [ngModel]="descripcionExpSelect">
+                    </div>
+                    <button type="submit" class="btn btn-primary">EDITAR</button>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------AGREGAR-------------------------------------------->
+
+<div class="modal" id="myModalAddExperience">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Agregar una Experiencia</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="formExperiencias" (ngSubmit)="addExperience(auxId)">
+                    <div class="mb-3 mt-3">
+                        <label for="tituloExp" class="form-label">Titulo</label>
+                        <input class="form-control" id="tituloExp" placeholder="Ingrese el titulo de la experiencia"
+                            name="tituloExp" formControlName="tituloExp" [ngModel]="tituloExpSelect">
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaExp" class="form-label">Fecha</label>
+                        <input class="form-control" id="fechaExp" placeholder="Ingrese la fecha" name="fechaExp"
+                            formControlName="fechaExp" [ngModel]="fechaExpSelect">
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="descripcionExp" class="form-label">Descripción</label>
+                        <input class="form-control" id="descripcionExp" placeholder="Ingrese descripción"
+                            formControlName="descripcionExp" name="descripcionExp" [ngModel]="descripcionExpSelect">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-----------------------------------------ELIMINAR------------------------------------------>
+
+<div class="modal" id="myModalDeleteExperience">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Eliminar Experiencia? </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="formExperiencias" (ngSubmit)="deleteExperience(auxId)">
+                    <h4>{{tituloExpSelect}}</h4>
+                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
 
         </div>
     </div>

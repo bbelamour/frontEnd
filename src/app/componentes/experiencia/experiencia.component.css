@@ -1,15 +1,27 @@
-.row {
+.carta {
   width: 100%;
   opacity: 0.9;
   margin: 25px;
   background-color: rgba(143, 23, 123, 0.733);
   color: white;
-  border-radius: 20px;
-  }
-
-      
-  svg {
-    float: right;
-    margin-top: -40px;
-    
+  border-radius: 20px 18px  ;
 }
+.card {
+  background-color: rgba(143, 23, 123, 0.474);
+  border-radius: 20px 18px ;
+
+}
+.container-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  border-bottom: 2px solid rgba(167, 8, 140, 0.474);
+  
+}
+
+.botones {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+

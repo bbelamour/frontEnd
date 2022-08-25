@@ -1,5 +1,4 @@
 .fondo {
-  background-repeat: repeat;
   background-image: url(/assets/image/fondo1.jpg);
   background-size: cover;
   position: fixed;
