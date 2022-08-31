@@ -3,7 +3,7 @@
         <div class="carta">
             <div class="p-2">
                 <div>
-                    <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#myModalAddProyect"
+                    <button class="btn btn-dark m-2" *ngIf="isLogged" data-bs-toggle="modal" data-bs-target="#myModalAddProyect"
                         style="float:right;">AGREGAR</button>
                 </div>
                 <h1>Proyectos</h1>
@@ -14,14 +14,17 @@
                 <h6>{{item.tituloProyects}}</h6>
                 <h6>{{item.fechaProyects}}</h6>
                 <h6>{{item.descripcionProyects}}</h6>
-                <h6>{{item.imgProyects}}</h6>
+                <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
+                <img src={{item.imgProyects}}  alt="imagenPortfolio" class="img-fluid imgProyects">
+                </div>
+            
             </div>
            <div class="botones">
                  <div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-primary" *ngIf="isLogged" data-bs-toggle="modal"
                        data-bs-target="#myModalEditProyect" (click)="findProyects(indice)">EDITAR</button>
                         </div>
-                    <div><button class="btn btn-danger" data-bs-toggle="modal"
+                    <div><button class="btn btn-danger" *ngIf="isLogged" data-bs-toggle="modal"
                        data-bs-target="#myModalDeleteProyect"
                            (click)="findProyects(indice)">ELIMINAR</button>
                         </div>
@@ -47,22 +50,22 @@
                 <form [formGroup]="formProyectos" (ngSubmit)="editProyects(ProyId)">
                     <div class="mb-3 mt-3">
                         <label for="tituloProyects" class="form-label">Titulo</label>
-                        <input class="form-control" id="tituloProyects" placeholder="Ingrese el titulo del proyecto"
+                        <input class="form-control"  placeholder="Ingrese el titulo del proyecto"
                             name="tituloProyects"  formControlName="tituloProyects"  [ngModel]="tituloProyectsSelect">
                     </div>
                     <div class="mb-3">
                         <label for="fechaProyects" class="form-label">Fecha</label>
-                        <input class="form-control" id="fechaProyects" placeholder="Ingrese la fecha" name="fechaProyects"
+                        <input class="form-control"  placeholder="Ingrese la fecha" name="fechaProyects"
                             formControlName="fechaProyects" [ngModel]="fechaProyectsSelect">
                     </div>
                     <div class="mb-3">
                         <label for="descripcionProyects" class="form-label">Descripción</label>
-                        <input class="form-control" id="descripcionProyects" placeholder="Ingrese descripción"
+                        <input class="form-control" placeholder="Ingrese descripción"
                             formControlName="descripcionProyects" name="descripcionProyects" [ngModel]="descripcionProyectsSelect">
                     </div>
                     <div class="mb-3">
                         <label for="imgProyects" class="form-label">Img del proyecto</label>
-                        <input class="form-control" id="imgProyects" placeholder="Ingrese url"
+                        <input class="form-control" placeholder="Ingrese url"
                             formControlName="imgProyects" name="imgProyects" [ngModel]="imgProyectsSelect">
                     </div>
                     <button type="submit" class="btn btn-primary">EDITAR</button>

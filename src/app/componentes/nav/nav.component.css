@@ -1,5 +1,13 @@
-
-
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  }
 .navegador {
     position: relative; 
     z-index: 3;
@@ -27,4 +35,22 @@ color: white;
   margin-right: 15px;
   color: white;
   
+}
+.card {
+  background-color: rgba(143, 23, 123, 0.474);
+  border-radius: 20px 18px ;
+
+}
+.container-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  border-bottom: 2px solid rgba(167, 8, 140, 0.474);
+  
+}
+
+.botones {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

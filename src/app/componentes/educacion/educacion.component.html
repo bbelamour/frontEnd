@@ -3,7 +3,7 @@
         <div class="carta">
             <div class="p-2">
                 <div>
-                    <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#myModalAddEducation"
+                    <button class="btn btn-dark m-2" data-bs-toggle="modal" *ngIf="isLogged" data-bs-target="#myModalAddEducation"
                         style="float:right;">AGREGAR</button>
                 </div>
                 <h1>Educación</h1>
@@ -18,12 +18,12 @@
             </div>
            <div class="botones">
                  <div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-primary" *ngIf="isLogged" data-bs-toggle="modal"
                        data-bs-target="#myModalEditEducation" (click)="findEducation(indice)"> EDITAR</button>
                         </div>
-                    <div><button class="btn btn-danger" data-bs-toggle="modal"
+                    <div><button class="btn btn-danger"  data-bs-toggle="modal"
                        data-bs-target="#myModalDeleteEducation"
-                           (click)="findEducation(indice)">ELIMINAR</button>
+                           (click)="findEducation(indice)" *ngIf="isLogged">ELIMINAR</button>
                         </div>
                     </div>
                 </div>
@@ -47,17 +47,17 @@
                 <form [formGroup]="formEducaciones" (ngSubmit)="editEducation(auxId)">
                     <div class="mb-3 mt-3">
                         <label for="tituloEdu" class="form-label">Titulo</label>
-                        <input class="form-control" id="titulodu" placeholder="Ingrese el titulo de la educación"
+                        <input class="form-control" placeholder="Ingrese el titulo de la educación"
                             name="tituloEdu" formControlName="tituloEdu" [ngModel]="tituloEduSelect">
                     </div>
                     <div class="mb-3">
                         <label for="fechaEdu" class="form-label">Fecha</label>
-                        <input class="form-control" id="fechaEdu" placeholder="Ingrese la fecha" name="fechaEdu"
+                        <input class="form-control" placeholder="Ingrese la fecha" name="fechaEdu"
                             formControlName="fechaEdu" [ngModel]="fechaEduSelect">
                     </div>
                     <div class="mb-3">
                         <label for="descripcionEdu" class="form-label">Descripción</label>
-                        <input class="form-control" id="descripcionEdu" placeholder="Ingrese descripción"
+                        <input class="form-control"  placeholder="Ingrese descripción"
                             formControlName="descripcionEdu" name="descripcionEdu" [ngModel]="descripcionEduSelect">
                     </div>
                     <button type="submit" class="btn btn-primary">OK</button>

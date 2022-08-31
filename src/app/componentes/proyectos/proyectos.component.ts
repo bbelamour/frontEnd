@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Form } from '@angular/forms';
 import { Proyects } from 'src/app/models/proyects/proyects';
 import { ProyectsService } from 'src/app/servicios/proyects.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -12,15 +13,26 @@ export class ProyectosComponent implements OnInit {
   misProyectos: any
   formProyectos: FormGroup
 
-  constructor(private proyectsService: ProyectsService, private formBuilder: FormBuilder) {
+  constructor(private proyectsService: ProyectsService, private formBuilder: FormBuilder, private tokenService: TokenService) {
     this.formProyectos = this.formBuilder.group({tituloProyects: '', fechaProyects:'', descripcionProyects:'', imgProyects:'' })
    }
 
+   isLogged = false;
   ngOnInit(): void {
     this.proyectsService.listProyects().subscribe(
       data =>{
         this.misProyectos = data;
       })
+
+      if(this.tokenService.getToken()){
+        this.isLogged = true;
+      }else{
+        this.isLogged = false;
+      }
+      
+
+      
+
   }
   ProyId!: number;
 

@@ -3,7 +3,7 @@
         <div class="carta">
             <div class="p-2">
                 <div>
-                    <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#myModalAddExperience"
+                    <button class="btn btn-dark m-2" data-bs-toggle="modal" *ngIf="isLogged" data-bs-target="#myModalAddExperience"
                         style="float:right;">AGREGAR</button>
                 </div>
                 <h1>Experiencia Laboral</h1>
@@ -17,10 +17,10 @@
             </div>
            <div class="botones">
                  <div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-primary"  data-bs-toggle="modal" *ngIf="isLogged"
                        data-bs-target="#myModalEditExperience" (click)="findExperience(indice)">EDITAR</button>
                         </div>
-                    <div><button class="btn btn-danger" data-bs-toggle="modal"
+                    <div><button class="btn btn-danger" data-bs-toggle="modal" *ngIf="isLogged"
                        data-bs-target="#myModalDeleteExperience"
                            (click)="findExperience(indice)">ELIMINAR</button>
                         </div>
@@ -46,17 +46,17 @@
                 <form [formGroup]="formExperiencias" (ngSubmit)="editExperience(auxId)">
                     <div class="mb-3 mt-3">
                         <label for="tituloExp" class="form-label">Titulo</label>
-                        <input class="form-control" id="tituloExp" placeholder="Ingrese el titulo de la experiencia"
+                        <input class="form-control"  placeholder="Ingrese el titulo de la experiencia"
                             name="tituloExp" formControlName="tituloExp" [ngModel]="tituloExpSelect">
                     </div>
                     <div class="mb-3">
                         <label for="fechaExp" class="form-label">Fecha</label>
-                        <input class="form-control" id="fechaExp" placeholder="Ingrese la fecha" name="fechaExp"
+                        <input class="form-control"  placeholder="Ingrese la fecha" name="fechaExp"
                             formControlName="fechaExp" [ngModel]="fechaExpSelect">
                     </div>
                     <div class="mb-3">
                         <label for="descripcionExp" class="form-label">Descripción</label>
-                        <input class="form-control" id="descripcionExp" placeholder="Ingrese descripción"
+                        <input class="form-control"  placeholder="Ingrese descripción"
                             formControlName="descripcionExp" name="descripcionExp" [ngModel]="descripcionExpSelect">
                     </div>
                     <button type="submit" class="btn btn-primary">EDITAR</button>
@@ -81,7 +81,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Agregar una Experiencia</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
             </div>
 
             <!-- Modal body -->
@@ -103,7 +103,7 @@
                         <input class="form-control" id="descripcionExp" placeholder="Ingrese descripción"
                             formControlName="descripcionExp" name="descripcionExp" [ngModel]="descripcionExpSelect">
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary" >Agregar</button>
                 </form>
             </div>
 

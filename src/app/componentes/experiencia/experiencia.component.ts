@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExperienceService } from 'src/app/servicios/experience.service';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Experience } from 'src/app/models/experience/experience';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -12,15 +13,23 @@ export class ExperienciaComponent implements OnInit {
   misExperiencias: any
   formExperiencias: FormGroup;
 
-  constructor(private experienceService: ExperienceService, private formBuilder : FormBuilder) { 
+  constructor(private experienceService: ExperienceService, private formBuilder : FormBuilder, private tokenService: TokenService) { 
     this.formExperiencias = this.formBuilder.group({tituloExp:'', fechaExp:'', descripcionExp:''})
   }
+  isLogged = false;
 
   ngOnInit(): void {
     this.experienceService.listExperience().subscribe(
       data =>{
         this.misExperiencias = data;
   })
+
+  if(this.tokenService.getToken()){
+    this.isLogged = true;
+  }else{
+    this.isLogged = false;
+  }
+
   }
   auxId!: number;
  

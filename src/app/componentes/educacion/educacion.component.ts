@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EducationService } from 'src/app/servicios/education.service';
 import { Education } from 'src/app/models/education/education';
+import { TokenService } from 'src/app/servicios/token.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-educacion',
@@ -12,15 +14,30 @@ export class EducacionComponent implements OnInit {
   misEducaciones: any
   formEducaciones: FormGroup;
 
-  constructor(private educationService: EducationService, private formBuilder : FormBuilder) { 
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
+
+  constructor(private educationService: EducationService, private formBuilder : FormBuilder, private tokenService: TokenService) { 
     this.formEducaciones = this.formBuilder.group({tituloEdu:'', fechaEdu:'', descripcionEdu:'', imgEdu:''})
   }
 
+
+    
   ngOnInit(): void {
     this.educationService.listEducation().subscribe(
       data =>{
-        this.misEducaciones = data;
+        this.misEducaciones = data
   })
+  
+  if(this.tokenService.getToken()){
+    this.isLogged = true;
+    this.isLoginFail = false;
+    this.roles = this.tokenService.getAuthorities();
+  }
+
+
+
   }
   auxId!: number;
   //con esta variable recogeremos la info de los campos
@@ -78,6 +95,12 @@ export class EducacionComponent implements OnInit {
           alert("Educación eliminada")
           location.href="/"
         })
+    }
+
+    logOut(){
+      this.tokenService.logOut();
+      this.isLogged = false;
+      location.href="/"
     }
   }
     

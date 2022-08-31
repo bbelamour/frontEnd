@@ -6,71 +6,25 @@
   color: white;
   border-radius: 20px 18px  ;
 }
+.card {
+  background-color: rgba(143, 23, 123, 0.474);
+  border-radius: 20px 18px ;
 
+}
+/*.container-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  border-bottom: 2px solid rgba(167, 8, 140, 0.474);
   
-  .circle {
-      display: grid;
-      place-items: center;
-      width: 150px;
-      height: 150px;
-      margin: 8px 20px;
-      border-radius: 50%;
-      cursor: default;
-      background: #fff;
-  }
-  
-  .circle .circle-inner {
-      display: grid;
-      place-items: center;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: #1d1e22;
-      font-size: 20px;
-  }
-  
-  .circle.html{
-      color: #e34f26;
-      background: conic-gradient(#e34f26 0 90%, #303238 90% 100%);
-  }
-  
-  .circle.css {
-      color: #264de4;
-      background: conic-gradient(#264de4 0 90%, #303238 90% 100%); /* el 55% difumina el progreso */
-  }
-  
-  .circle.git {
-      color: #f34f29;
-      background: conic-gradient(#f34f29 0 75%, #303238 75% 100%);
-  }
+}*/
 
-  .circle.bootstrap{
-    color: #59287a;
-    background: conic-gradient(#59287a 0 80%, #303238 80% 100%) ;
 
-  }
+.botones {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
-  .circle.javascript{
-    color: #f7df1e;
-    background: conic-gradient(#f7df1e 0 80%, #303238 80% 100%);
-  }
 
-  .circle.java{
-    color: #f89820;
-    background: conic-gradient(#f89820 0 60%, #303238 60% 100%);
-  }
 
-  .circle.angular{
-    color: #d4173b;
-    background: conic-gradient(#d4173b 0 85%, #303238 85% 100%);
-  }
-
-  .circle.mysql{
-    color: rgb(0, 117, 143);
-    background: conic-gradient(rgb(0, 117, 143) 0 60%, #303238 60% 100%);
-  }
-
-  .circle.react{
-    color: #0967be;
-    background: conic-gradient(#0967be 0 90%, #303238 90% 100%);
-  }
