@@ -36,5 +36,18 @@ color: white;
   color: white;
   
 }
-
+.modal{
+  background-color:  rgba(42, 34, 41, 0.178);
+  
+}
+.modal-title { color: white;}
+.modal-body { color: white;}
+.modal-footer { color: white;}
+.modal-content{   background: #3c0a7d;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(143, 23, 123, 0.8), rgb(50, 36, 114,1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right,rgba(143, 23, 123, 0.8), rgba(50, 36, 114, 1))}
 

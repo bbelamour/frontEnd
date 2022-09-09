@@ -15,7 +15,7 @@
     
 }
 .container-contenido {
-  display: grid;
+  display: block;
   grid-template-columns: 1fr 1fr;
   padding: 10px;
   border-bottom: 2px solid rgba(167, 8, 140, 0.474);
@@ -27,6 +27,6 @@
 .botones {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  
+  
 }
-
