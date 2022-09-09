@@ -8,58 +8,81 @@
                 </div>
                 <h1>Hard & Soft Skills</h1>
             </div>
-            <div class="card">
+
+            
+            <div class="cartita">
                 <div class="container-contenido mb-2" *ngFor="let item of misHabilidades, let indice=index">
-            <div>
-                <h6>{{item.tituloSkills}}</h6>
-                <h6>{{item.imgSkills}}</h6>
-                <h6>{{item.porcentaje}}</h6>
-                
-            </div>
-           <div class="botones">
+
+                    <div>
+                        <h4 class="tituloSkills">{{item.tituloSkills}}</h4>
+               
+                        <circle-progress
+                        [percent]="item.porcentaje"
+                        [radius]="100"
+               [imageSrc]="item.imgSkills"
+                        [showImage]="true"
+                        [imageHeight]="70"
+                        [imageWidth]="70"
+                        [showUnits]="false"
+                        [showSubtitle]="false"
+                        [outerStrokeWidth]="10"
+                        [innerStrokeWidth]="3"
+                        [outerStrokeColor]="'rgba(167, 8, 140, 0.474)'"
+                        [innerStrokeColor]="'rgba(208, 174, 232, 0.474)'"
+                        [animation]="true"
+                        [animationDuration]="500"
+                      ></circle-progress>
+                    </div>
+                    
+                   
+
+           <div class="botones d-grid gap-2 d-md-flex justify-content-md-end">
                  <div>
                     <button type="button" class="btn btn-primary" *ngIf="isLogged" data-bs-toggle="modal"
                        data-bs-target="#myModalEditSkill" (click)="findSkills(indice)"> EDITAR</button>
                         </div>
-                    <div><button class="btn btn-danger"  data-bs-toggle="modal"
+                    <div><button class="btn btn-danger" *ngIf="isLogged"  data-bs-toggle="modal"
                        data-bs-target="#myModalDeleteSkill"
-                           (click)="findSkills(indice)" *ngIf="isLogged">ELIMINAR</button>
+                           (click)="findSkills(indice)" >ELIMINAR</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </section>
+<!-----------------------------------EDITAR--------------------------------------------->
 <div class="modal" id="myModalEditSkill">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Editar Habilidad</h4>
+                <h4 class="modal-title">Editar habilidad</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form [formGroup]="formHabilidades" (ngSubmit)="editSkills(skillsId)">
+                <form [formGroup]="formHabilidades" (ngSubmit)="editSkill(skillsId)">
                     <div class="mb-3 mt-3">
                         <label for="tituloSkills" class="form-label">Titulo</label>
-                        <input class="form-control" placeholder="Ingrese el titulo de la habilidad"
-                            name="tituloSkills" formControlName="tituloSkills" [ngModel]="tituloSkillsSelect">
+                        <input class="form-control"  placeholder="Ingrese el titulo de la habilidad"
+                            name="tituloSkills"  formControlName="tituloSkills"  [ngModel]="tituloSkillsSelect">
                     </div>
                     <div class="mb-3">
-                        <label for="imgSkills" class="form-label">Fecha</label>
-                        <input class="form-control" placeholder="Ingrese la imágen" name="imgSkills"
-                            formControlName="imgSkills" [ngModel]="imgSkillsSelect">
+                        <label for="imgSkills" class="form-label">Img de la habilidad</label>
+                        <input class="form-control" placeholder="Ingrese url"
+                            formControlName="imgSkills" name="imgSkills" [ngModel]="imgSkillsSelect">
                     </div>
                     <div class="mb-3">
-                        <label for="porcentaje"class="form-label">Porcentaje</label>
-                        <input class="form-control"  placeholder="Ingrese porcentaje"
-                            formControlName="porcentaje" name="porcentaje" [ngModel]="porcentajeSelect">
+                        <label for="porcentaje" class="form-label">Porcentaje</label>
+                        <input class="form-control" placeholder="Ingrese porcentaje de conocimiento"
+                            formControlName="porcentaje" name="descripcionProyects" [ngModel]="porcentajeSelect">
                     </div>
-                    <button type="submit" class="btn btn-primary">OK</button>
+
+                    <button type="submit" class="btn btn-primary">EDITAR</button>
                 </form>
             </div>
 
@@ -80,29 +103,30 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Agregar una Habilidad</h4>
+                <h4 class="modal-title">Agregar una habilidad</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form [formGroup]="formHabilidades" (ngSubmit)="addSkills(skillsId)">
+                <form [formGroup]="formHabilidades" (ngSubmit)="addSkill(skillsId)">
                     <div class="mb-3 mt-3">
                         <label for="tituloSkills" class="form-label">Titulo</label>
-                        <input class="form-control"  placeholder="Ingrese el titulo de la habilidad"
-                            name="tituloEdu" formControlName="tituloSkills" [ngModel]="tituloSkillsSelect">
+                        <input class="form-control" id="tituloSkills" placeholder="Ingrese el titulo de su habilidad"
+                            name="tituloSkills" formControlName="tituloSkills" [ngModel]="tituloSkillsSelect">
                     </div>
                     <div class="mb-3">
-                        <label for="imgSkills" class="form-label">Imagen</label>
-                        <input class="form-control"  placeholder="Ingrese la imagen" name="imgSkills"
-                            formControlName="imgSkills" [ngModel]="imgSkillsSelect">
+                        <label for="imgSkills" class="form-label">Img de la habilidad</label>
+                        <input class="form-control" id="imgSkills" placeholder="Ingrese url"
+                            formControlName="imgSkills" name="imgSkills" [ngModel]="imgSkillsSelect">
                     </div>
 
                     <div class="mb-3 mt-3">
                         <label for="porcentaje" class="form-label">Porcentaje</label>
-                        <input class="form-control"  placeholder="Ingrese descripción"
-                            formControlName="porcentaje" name="descripcionEdu" [ngModel]="porcentajeSelect">
+                        <input class="form-control" id="porcentaje" placeholder="Ingrese porcentaje"
+                            formControlName="porcentaje" name="porcentaje" [ngModel]="porcentajeSelect">
                     </div>
+
                     <button type="submit" class="btn btn-primary">Agregar</button>
                 </form>
             </div>
@@ -130,7 +154,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form [formGroup]="formHabilidades" (ngSubmit)="deleteSkills(skillsId)">
+                <form [formGroup]="formHabilidades" (ngSubmit)="deleteSkill(skillsId)">
                     <h4>{{tituloSkillsSelect}}</h4>
                     <button type="submit" class="btn btn-primary">Eliminar</button>
                 </form>
@@ -144,4 +168,3 @@
         </div>
     </div>
 </div>
-    

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Skills } from 'src/app/models/skills/skills';
-import { SkillsService } from 'src/app/servicios/skills.service';
+import { HabilidadesService } from 'src/app/servicios/habilidades.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
@@ -18,12 +18,12 @@ export class HabilidadesComponent implements OnInit {
   isLoginFail = false;
   roles: string[] = [];
 
-  constructor(private skillsService: SkillsService, private formBuilder : FormBuilder, private tokenService: TokenService) { 
+  constructor(private habilidadesService: HabilidadesService, private formBuilder : FormBuilder, private tokenService: TokenService) { 
     this.formHabilidades = this.formBuilder.group({tituloSkills:'', imgSkills:'', porcentaje:''}) 
    }
 
    ngOnInit(): void {
-    this.skillsService.listSkills().subscribe(
+    this.habilidadesService.listSkills().subscribe(
       data =>{
         this.misHabilidades = data
   })
@@ -48,7 +48,7 @@ export class HabilidadesComponent implements OnInit {
     this.porcentajeSelect = this.misHabilidades[this.skillsId].porcentaje;
    
   }
-    editSkills(item: number){
+    editSkill(item: number){
     //instanciamos un objeto del tipo experiencia como lo tenemos en el modelo deben ser los nombres de las variable
     //A diferencia del agregar a este metodo tenemos que pasarle el id como lo haciamos al editar
     let skills: Skills = {
@@ -57,44 +57,35 @@ export class HabilidadesComponent implements OnInit {
       "imgSkills": this.formHabilidades.value.imgSkills,
       "porcentaje": this.formHabilidades.value.porcentaje
     }
-    this.skillsService.editSkills(skills).subscribe(
+    this.habilidadesService.editSkill(skills).subscribe(
       data =>{
         alert("Habilidad editada")
            location.href="/"
       })
   }
-  addSkills(item: number){
+  addSkill(item: number){
     let skills: Skills = {
-      "id": this.misHabilidades[item].id,
-      "tituloSkills": this.formHabilidades.value.tituloSkills,
+     "tituloSkills": this.formHabilidades.value.tituloSkills,
       "imgSkills": this.formHabilidades.value.imgSkills,
       "porcentaje": this.formHabilidades.value.porcentaje
     }
-    this.skillsService.addSkills(skills).subscribe(
+    this.habilidadesService.addSkill(skills).subscribe(
       data =>{
         alert("Habilidad agregada")
         location.href="/"
       })
     }
-    deleteSkills(item: number){
+    deleteSkill(item: number){
       let skills: Skills = {
-        "id": this.misHabilidades[item].id,
         "tituloSkills": this.formHabilidades.value.tituloSkills,
         "imgSkills": this.formHabilidades.value.imgSkills,
         "porcentaje": this.formHabilidades.value.porcentaje
       }
-      this.skillsService.deleteSkills(this.misHabilidades[item].id).subscribe(
+      this.habilidadesService.deleteSkill(this.misHabilidades[item].id).subscribe(
         data =>{
           alert("Habilidad eliminada")
           location.href="/"
         })
-    }
-
-    
-    logOut(){
-      this.tokenService.logOut();
-      this.isLogged = false;
-      location.href="/"
     }
       }
 

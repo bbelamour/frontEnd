@@ -12,12 +12,16 @@ import { TokenService } from 'src/app/servicios/token.service';
 export class ProyectosComponent implements OnInit {
   misProyectos: any
   formProyectos: FormGroup
+  
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
 
   constructor(private proyectsService: ProyectsService, private formBuilder: FormBuilder, private tokenService: TokenService) {
     this.formProyectos = this.formBuilder.group({tituloProyects: '', fechaProyects:'', descripcionProyects:'', imgProyects:'' })
    }
 
-   isLogged = false;
+   
   ngOnInit(): void {
     this.proyectsService.listProyects().subscribe(
       data =>{
@@ -26,8 +30,8 @@ export class ProyectosComponent implements OnInit {
 
       if(this.tokenService.getToken()){
         this.isLogged = true;
-      }else{
-        this.isLogged = false;
+        this.isLoginFail = false;
+        this.roles = this.tokenService.getAuthorities();
       }
       
 

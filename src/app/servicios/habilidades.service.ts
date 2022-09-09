@@ -6,9 +6,9 @@ import { Skills } from '../models/skills/skills';
 @Injectable({
   providedIn: 'root'
 })
-export class SkillsService {
+export class HabilidadesService {
   
-  URLskills = 'http://localhost:8080/experience/';
+  URLskills = 'http://localhost:8080/skills/';
 
   constructor(private httpSkills: HttpClient) { }
 
@@ -16,15 +16,15 @@ export class SkillsService {
     return this.httpSkills.get<Skills[]>(this.URLskills + 'list');
 
   }
-  public addSkills(skills: Skills): Observable<any>{
+  public addSkill(skills: Skills): Observable<any>{
     return this.httpSkills.post<any>(this.URLskills + 'add', skills);
  
   }
-  public editSkills(skills: Skills): Observable<any>{
+  public editSkill(skills: Skills): Observable<any>{
     return this.httpSkills.put<any>(this.URLskills + 'edit', skills);
 
 }
-  public deleteSkills(id: number): Observable<any>{
+  public deleteSkill(id: number): Observable<any>{
     return this.httpSkills.delete<any>(this.URLskills + `delete/${id}`);
   }
   public findSkills(id: number): Observable<any>{
