@@ -7,9 +7,12 @@
     border-radius: 20px 18px  ;
   }
   .card {
+    width: 100%;
     background-color: rgba(143, 23, 123, 0.474);
     border-radius: 20px 18px ;
+    padding: 10px;
   
+      
   }
   .container-contenido {
     display: grid;
@@ -22,7 +25,8 @@
   .botones {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    
+    
   }
   
   

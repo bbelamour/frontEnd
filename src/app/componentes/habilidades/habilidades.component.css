@@ -4,31 +4,22 @@
   margin: 25px;
   background-color: rgba(143, 23, 123, 0.733);
   color: white;
-  border-radius: 20px 18px ;
-  
-  
-
+  border-radius: 20px 18px  ;
 }
-.cartita {
-  margin-left: 120px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: 300px;
-  height: 350px;
-  align-content: space-between;
-  position: relative;
- }
-
-.container-contenido {
-
-  display:inline-table;
-  padding: 10px; 
-  text-overflow: clip;
-  text-align: auto;
+.card {
   width: 100%;
-  margin-bottom: 2px;
-  
+  background-color: rgba(143, 23, 123, 0.474);
+  border-radius: 20px 18px ;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
 
-  
+    
 }
+  
+  .botones {
+    display: flex;
+     align-items: center;
+  }
+  
+  

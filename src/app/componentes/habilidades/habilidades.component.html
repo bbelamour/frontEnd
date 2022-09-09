@@ -10,13 +10,13 @@
             </div>
 
             
-            <div class="cartita">
-                <div class="container-contenido mb-2" *ngFor="let item of misHabilidades, let indice=index">
+            <div class="card">
+                <div *ngFor="let item of misHabilidades, let indice=index">
 
                     <div>
                         <h4 class="tituloSkills">{{item.tituloSkills}}</h4>
                
-                        <circle-progress
+                        <circle-progress class="col-12"
                         [percent]="item.porcentaje"
                         [radius]="100"
                [imageSrc]="item.imgSkills"

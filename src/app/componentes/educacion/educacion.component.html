@@ -11,17 +11,17 @@
             <div class="card">
                 <div class="container-contenido mb-2" *ngFor="let item of misEducaciones, let indice=index">
             <div>
-                <h6>{{item.tituloEdu}}</h6>
+                <h5>{{item.tituloEdu}}</h5>
                 <h6>{{item.fechaEdu}}</h6>
                 <h6>{{item.descripcionEdu}}</h6>
                 <h6>{{item.imgEdu}}</h6>
             </div>
            <div class="botones">
                  <div>
-                    <button type="button" class="btn btn-primary" *ngIf="isLogged" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-primary m-1" *ngIf="isLogged" data-bs-toggle="modal"
                        data-bs-target="#myModalEditEducation" (click)="findEducation(indice)"> EDITAR</button>
                         </div>
-                    <div><button class="btn btn-danger"  data-bs-toggle="modal"
+                    <div><button class="btn btn-danger m-1"  data-bs-toggle="modal"
                        data-bs-target="#myModalDeleteEducation"
                            (click)="findEducation(indice)" *ngIf="isLogged">ELIMINAR</button>
                         </div>

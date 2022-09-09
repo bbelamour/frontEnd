@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="container-contenido mb-2" *ngFor="let item of misProyectos, let indice=index">
             <div>
-                <h6>{{item.tituloProyects}}</h6>
+                <h5>{{item.tituloProyects}}</h5>
                 <h6>{{item.fechaProyects}}</h6>
                 <h6>{{item.descripcionProyects}}</h6>
                 <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
@@ -21,10 +21,10 @@
             </div>
            <div class="botones">
                  <div>
-                    <button type="button" class="btn btn-primary" *ngIf="isLogged" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-primary m-1" *ngIf="isLogged" data-bs-toggle="modal"
                        data-bs-target="#myModalEditProyect" (click)="findProyects(indice)">EDITAR</button>
                         </div>
-                    <div><button class="btn btn-danger" *ngIf="isLogged" data-bs-toggle="modal"
+                    <div><button class="btn btn-danger m-1" *ngIf="isLogged" data-bs-toggle="modal"
                        data-bs-target="#myModalDeleteProyect"
                            (click)="findProyects(indice)">ELIMINAR</button>
                         </div>

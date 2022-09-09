@@ -39,28 +39,21 @@
                 <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                         <p>INGRESAR</p>
                         <div>
-                          <label for="userName">Usuario</label>
-                          <input
-                            type="text"
-                            name="userName"
-                            id="userName"
-                            placeholder="ingresa tu usuario..."
-                            [(ngModel)]="userName"
-                            required
-                          />
+                          <label for="userName" class="form-label">Usuario</label>
+                          <input type="text" name="userName" id="userName" placeholder="Ingresa tu usuario"
+                            [(ngModel)]="userName" class="form-control"
+                            required/>
                         </div>
                         <div>
-                          <label for="password">Contraseña</label><br />
-                          <input
-                            type="password"
-                            name="password"
-                            id="password"
-                            placeholder="ingresa tu contraseña..."
-                            [(ngModel)]="password"
-                            required
-                          />
+                          <label for="password" class="form-label">Contraseña</label><br />
+                          <input type="password" name="password" id="password"
+                            placeholder="Ingrese contraseña" class="form-control"
+                            [(ngModel)]="password" required/>
                         </div>
-                        <button><b>Iniciar Sesión</b></button>
+                        <span>
+                          <button class="btn btn-primary m-2">Iniciar Sesión</button>
+                        </span>
+                        
                       </form>
                 
             </div>

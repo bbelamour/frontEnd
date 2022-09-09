@@ -18,10 +18,10 @@
             </div>
            <div class="botones">
                  <div>
-                    <button type="button" class="btn btn-primary"  data-bs-toggle="modal" *ngIf="isLogged"
+                    <button type="button" class="btn btn-primary m-1"  data-bs-toggle="modal" *ngIf="isLogged"
                        data-bs-target="#myModalEditExperience" (click)="findExperience(indice)">EDITAR</button>
                         </div>
-                    <div><button class="btn btn-danger" data-bs-toggle="modal" *ngIf="isLogged"
+                    <div><button class="btn btn-danger m-1" data-bs-toggle="modal" *ngIf="isLogged"
                        data-bs-target="#myModalDeleteExperience"
                            (click)="findExperience(indice)">ELIMINAR</button>
                         </div>
@@ -102,7 +102,7 @@
 
                     <div class="md-form">
                         <label for="descripcionExp" class="form-label">Descripción</label>
-                        <textarea type="text" id="descripcionExp" placeholder="Ingrese descripción" class="md-textarea form-control" rows="4" formControlName="descripcionExp" name="descripcionExp" [ngModel]="descripcionExpSelect"></textarea>
+                        <textarea type="text"  placeholder="Ingrese descripción" class="md-textarea form-control" rows="4" formControlName="descripcionExp" name="descripcionExp" [ngModel]="descripcionExpSelect"></textarea>
                         
                     </div>
                     <button type="submit" class="btn btn-primary" >Agregar</button>
