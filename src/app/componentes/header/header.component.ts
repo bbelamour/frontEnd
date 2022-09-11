@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder , Validator } from '@angular/forms';
 import { Person } from 'src/app/models/person/person';
 import { PersonService } from 'src/app/servicios/person.service'
-
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +12,11 @@ import { PersonService } from 'src/app/servicios/person.service'
 export class HeaderComponent implements OnInit {
   miPersona: any
   formPersona : FormGroup;
-  
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
 
-  constructor(private personService: PersonService, private formBuilder: FormBuilder) { 
+  constructor(private personService: PersonService, private formBuilder: FormBuilder, private tokenService: TokenService) { 
     this.formPersona = this.formBuilder.group({id:'', nombre: '', apellido:'', residencia: '', infoContacto: '', acercaDeMi: ''})
   }
 
@@ -24,6 +26,13 @@ export class HeaderComponent implements OnInit {
         this.miPersona = data;
 
   })
+
+  if(this.tokenService.getToken()){
+    this.isLogged = true;
+    this.isLoginFail = false;
+    this.roles = this.tokenService.getAuthorities();
+  }
+
 }
   perId!: number;
   idPerSelect ="";
@@ -42,6 +51,21 @@ export class HeaderComponent implements OnInit {
     this.infoContactoPerSelect = this.miPersona[this.perId].infoContacto;
     this.acercaDeMiPerSelect = this.miPersona[this.perId].acercaDeMi;
   }
+/*addPerson(item: number){
+    let person: Person = {
+      "nombre": this.formPersona.value.nombre,
+      "apellido": this.formPersona.value.apellido,
+      "residencia": this.formPersona.value.residencia,
+      "infoContacto": this.formPersona.value.infoContacto,
+      "acercaDeMi": this.formPersona.value.acercaDeMi
+    }
+    this.personService.addPerson(person).subscribe(
+      data =>{
+        alert("Persona editada")
+        location.href="/"
+      })
+    }*/
+  
   editPerson(item: number){
     let person: Person = {
       "id": this.miPersona[item].id,
@@ -60,7 +84,11 @@ export class HeaderComponent implements OnInit {
   }
   
 
-
+logOut(){
+  this.tokenService.logOut();
+  this.isLogged = false;
+  location.href="/"
+}
 }
 
 

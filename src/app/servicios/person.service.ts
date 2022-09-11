@@ -19,6 +19,7 @@ export class PersonService {
    public editPerson(person: Person): Observable<any>{
     return this.httpPers.put<any>(this.URLpers + 'edit', person);
    }
-
-
+   public addPerson(person: Person): Observable<any>{
+    return this.httpPers.post<any>(this.URLpers + 'add', person);
+  }
 }

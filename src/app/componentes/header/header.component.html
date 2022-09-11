@@ -1,26 +1,27 @@
-
+<section>
 <div class="col-11 col-xs-8 col-sm-11 col-md-11 col-lg-11">
-    <div class="carta">
     
-
  <div class="card">
-    <div class="card-header" *ngFor="let item of miPersona, let indice=index">
-<div>
+    <div class="container-contenido mb-2" *ngFor="let item of miPersona, let indice=index">
+<div class="pie-foto">
     <h2>{{item.nombre}}</h2> 
     <h2>{{item.apellido}}</h2>
     <h6>{{item.residencia}}</h6>
     <h6>{{item.acercaDeMi}}</h6>
-    <a href="mailto:belenalvarezgardiol@gmail.com">{{item.infoContacto}}</a>
+    <p class="m-1" style="display:inline-block;">Contact me!</p><a href="mailto:belenalvarezgardiol@gmail.com">{{item.infoContacto}}</a>
+    
 </div>
 
-<div class="botones">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-           data-bs-target="#myModalEditPerson" (click)="findPerson(indice)"> EDITAR</button>
+    <div class="botones">
+        <button type="button" class="btn btn-primary"  *ngIf="isLogged" data-bs-toggle="modal"
+           data-bs-target="#myModalEditPerson" (click)="findPerson(indice)">EDITAR</button>
     </div>
- </div>
- 
+</div>
+</div>
+</div>
 
 
+</section>
 <!-----------------------------------EDITAR--------------------------------------------->
 <div class="modal" id="myModalEditPerson">
     <div class="modal-dialog">
@@ -52,15 +53,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="infoContacto" class="form-label">Información de contacto</label>
-                        <input class="form-control" id="infoContactop" placeholder="Ingrese su información de contacto"
+                        <input class="form-control" id="infoContacto" placeholder="Ingrese su información de contacto"
                             formControlName="infoContacto" name="infoContacto" [ngModel]="infoContactoPerSelect">
                     </div>
                     <div class="mb-3">
                         <label for="acercaDeMi" class="form-label">Acerca de mi</label>
                         <input class="form-control" id="acercaDeMi" placeholder="Info acerca de ti"
-                            formControlName="acercaDeMi" name="infoContacto" [ngModel]="acercaDeMiPerSelect">
+                            formControlName="acercaDeMi" name="acercaDeMi" [ngModel]="acercaDeMiPerSelect">
                     </div>
-                    <button type="submit" class="btn btn-primary">EDITAR</button>
+                    <button type="submit" class="btn btn-primary">OK</button>
                 </form>
             </div>
 
