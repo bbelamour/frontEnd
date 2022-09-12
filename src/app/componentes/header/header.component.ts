@@ -51,20 +51,7 @@ export class HeaderComponent implements OnInit {
     this.infoContactoPerSelect = this.miPersona[this.perId].infoContacto;
     this.acercaDeMiPerSelect = this.miPersona[this.perId].acercaDeMi;
   }
-/*addPerson(item: number){
-    let person: Person = {
-      "nombre": this.formPersona.value.nombre,
-      "apellido": this.formPersona.value.apellido,
-      "residencia": this.formPersona.value.residencia,
-      "infoContacto": this.formPersona.value.infoContacto,
-      "acercaDeMi": this.formPersona.value.acercaDeMi
-    }
-    this.personService.addPerson(person).subscribe(
-      data =>{
-        alert("Persona editada")
-        location.href="/"
-      })
-    }*/
+
   
   editPerson(item: number){
     let person: Person = {

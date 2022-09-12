@@ -40,13 +40,13 @@ export class EducacionComponent implements OnInit {
 
   }
   auxId!: number;
-  //con esta variable recogeremos la info de los campos
+ 
   tituloEduSelect = "";
   fechaEduSelect = "";
   descripcionEduSelect = "";
   imgEduSelect = "";
   findEducation(item: number){
-    //Le pasamos los valores a las variables de arriba
+  
     this.auxId = item;
     this.tituloEduSelect= this.misEducaciones[this.auxId].tituloEdu;
     this.fechaEduSelect = this.misEducaciones[this.auxId].fechaEdu;
@@ -54,8 +54,7 @@ export class EducacionComponent implements OnInit {
     this.imgEduSelect = this.misEducaciones[this.auxId].imgEdu;
   }
     editEducation(item: number){
-    //instanciamos un objeto del tipo experiencia como lo tenemos en el modelo deben ser los nombres de las variable
-    //A diferencia del agregar a este metodo tenemos que pasarle el id como lo haciamos al editar
+    
     let education: Education = {
       "id": this.misEducaciones[item].id,
       "tituloEdu": this.formEducaciones.value.tituloEdu,
