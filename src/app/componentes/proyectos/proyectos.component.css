@@ -27,3 +27,14 @@
   justify-content: flex-end;
    
 }
+
+@media (max-width: 600px) {
+  .carta {
+    display: inline-block;
+    margin-left: 18px;
+    width: 100%;
+    
+
+  }
+}
+  
