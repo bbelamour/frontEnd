@@ -18,24 +18,20 @@
     color: #fff;
     width: 100%;
 }
-
-
-.flotar-derecha{
+ .redes{ 
   float: right;
+  margin: 25px 15px 0 0;
   
-}
+ }
 
-.flotar-derecha .redes{
-text-decoration: none;
-color: white; 
 
-}
-
-.navegador a{
-  margin-right: 15px;
+/*.navegador a{
+  
   color: white;
-  
-}
+  z-index: 1000;
+  }
+  */
+
 .modal{
   background-color:  rgba(42, 34, 41, 0.178);
   

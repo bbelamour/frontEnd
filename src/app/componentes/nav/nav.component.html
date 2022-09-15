@@ -1,72 +1,72 @@
 <nav class="navegador bg-primary">
   <img src="assets/image/logo-ap.png" height="100%" />
-  <div class="flotar-derecha">
-    <a
-      href="https://www.instagram.com/bbelamour/"
-      class="redes fa fa-instagram"
-    ></a>
-    <a
-      href="https://github.com/bbelamour"
-      class="redes fa fa-github-square"
-    ></a>
-    <a
-      href="https://www.linkedin.com/in/belenalvarezgardiol/"
-      class="redes fa fa-linkedin-square"
-      aria-hidden="true"
-    ></a>
-    <a href="https://wa.me/5493416883395" class="redes fa fa-whatsapp"></a>
 
-    <button class="btn btn-dark m-2"  data-bs-toggle="modal"  data-bs-target="#myModalLogin" *ngIf="!isLogged" style="float: right">LOG IN</button>
+  <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#myModalLogin" *ngIf="!isLogged"
+    style="float: right">LOG IN</button>
 
-    <button class="btn btn-dark m-2" style="float: right" (click)="logOut()" *ngIf="isLogged" >LOG OUT</button>
+  <button class="btn btn-dark m-2" style="float: right" (click)="logOut()" *ngIf="isLogged">LOG OUT</button>
 
-  </div>
+  <!-- Linkedin -->
+  <a style="background-color: #0082ca;" href="https://www.linkedin.com/in/belenalvarezgardiol" role="button"><i
+      class="redes fab fa-linkedin-in fa-lg"></i></a>
+
+  <!-- Instagram -->
+  <a style="color: #ac2bac;" href="https://www.instagram.com/bbelamour/" role="button"><i
+      class="redes redes fab fa-instagram fa-lg"></i></a>
+  <!-- Twitter -->
+  <a style="color: #55acee;" href="https://twitter.com/BelenAgardiol" role="button"><i
+      class="redes fab fa-twitter fa-lg"></i></a>
+
+  <!-- Github-->
+  <a style="color: #171515;" href="https://github.com/bbelamour" role="button"><i
+      class="redes fab fa-github fa-lg"></i></a>
+
+  <!-- Whatsapp -->
+  <a style="color: #6cc644;" href="https://wa.me/5493416883395" role="button"><i
+      class=" redes fab fa-whatsapp fa-lg"></i></a>
+
+
 </nav>
 
-    <!-- The Modal -->
-    <div class="modal" id="myModalLogin">
-        <div class="modal-dialog">
-          <div class="modal-content">
-      
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Ingrese usuario</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-      
-            <!-- Modal body -->
-            <div class="modal-body">
-                <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-                        <p>INGRESAR</p>
-                        <div>
-                          <label for="userName" class="form-label">Usuario</label>
-                          <input type="text" name="userName" id="userName" placeholder="Ingresa tu usuario"
-                            [(ngModel)]="userName" class="form-control"
-                            required/>
-                        </div>
-                        <div>
-                          <label for="password" class="form-label">Contraseña</label><br />
-                          <input type="password" name="password" id="password"
-                            placeholder="Ingrese contraseña" class="form-control"
-                            [(ngModel)]="password" required/>
-                        </div>
-                        <span>
-                          <button class="btn btn-primary mt-4">Iniciar Sesión</button>
-                        </span>
-                        
-                      </form>
-                
-            </div>
-      
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            </div>
-      
-          </div>
-        </div>
+
+<!-- The Modal -->
+<div class="modal" id="myModalLogin">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Ingrese usuario</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-  
 
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+          <p>INGRESAR</p>
+          <div>
+            <label for="userName" class="form-label">Usuario</label>
+            <input type="text" name="userName" id="userName" placeholder="Ingresa tu usuario" [(ngModel)]="userName"
+              class="form-control" required />
+          </div>
+          <div>
+            <label for="password" class="form-label">Contraseña</label><br />
+            <input type="password" name="password" id="password" placeholder="Ingrese contraseña" class="form-control"
+              [(ngModel)]="password" required />
+          </div>
+          <span>
+            <button class="btn btn-primary mt-4">Iniciar Sesión</button>
+          </span>
 
-     
+        </form>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -8,7 +8,7 @@ import { Person } from '../models/person/person';
   providedIn: 'root'
 })
 export class PersonService {
-  URLpers = 'http://localhost:8080/people/'//aca va la ruta para poder hacer el http request.
+  URLpers = 'https://belenag-portfolio.herokuapp.com/people/'//aca va la ruta para poder hacer el http request.
  
 
   constructor(private httpPers: HttpClient) { }

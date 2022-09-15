@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
+
 
 const routes: Routes = [];
 

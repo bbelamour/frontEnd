@@ -7,7 +7,7 @@ import { Proyects } from '../models/proyects/proyects';
   providedIn: 'root'
 })
 export class ProyectsService {
-  URLproy = 'http://localhost:8080/proyects/';
+  URLproy = 'https://belenag-portfolio.herokuapp.com/proyects/';
 
   constructor(private httpProy : HttpClient) { }
 
